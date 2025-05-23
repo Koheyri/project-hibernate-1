@@ -1,3 +1,17 @@
+DROP TABLE IF EXISTS player;
+
+CREATE TABLE rpg.player
+(
+    id         INT AUTO_INCREMENT PRIMARY KEY NOT NULL, -- Assuming 'id' is the primary key and an integer.
+    name       VARCHAR(12)     NOT NULL, -- Player name, adjust length as needed.  VARCHAR is usually the best choice for names.
+    title      VARCHAR(30)     NOT NULL, -- Player title, adjust length as needed.
+    race       INT             NOT NULL, -- Assuming 'race' is an integer code representing a race.  Could also be a foreign key to a races table.
+    profession INT             NOT NULL, -- Assuming 'profession' is an integer code.  Could be a foreign key.
+    birthday   DATETIME        NOT NULL, -- Date and time of birth.  Use DATE if you only need the date.
+    level      INT             NOT NULL, -- Player level.
+    banned     BOOLEAN         NOT NULL  -- or TINYINT(1) if boolean is not directly supported.
+);
+
 INSERT INTO rpg.player (id, name, title, race, profession, birthday, level, banned)
 VALUES (1, 'Ниус', 'Приходящий Без Шума', 6, 1, '2009-06-09 00:44:40.000000', 33, '\0'),
        (2, 'Никрашш', 'НайтВульф', 4, 0, '2006-07-09 08:50:40.000000', 58, '\0'),
